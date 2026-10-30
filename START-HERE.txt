@@ -1,0 +1,14 @@
+MULTI-VENDOR E-COMMERCE ORDERING MANAGEMENT SYSTEM
+
+1. Extract this folder.
+2. Open the extracted folder in VS Code.
+3. Open Terminal and run: cd backend
+4. Run: npm install
+5. Copy .env.example to .env inside backend, then add your own Supabase URL,
+   server-side service-role key, and a strong JWT_SECRET.
+6. Run database/schema.sql in Supabase SQL Editor.
+7. Run: npm start
+8. Open http://localhost:3000
+
+Read README.md for complete setup, API documentation, testing, and GitHub instructions.
+Never share backend/.env or commit real credentials.

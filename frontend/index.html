@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple multi-vendor marketplace project">
+  <title>MarketHub | Multi-vendor Marketplace</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="brandLink">Market<span>Hub</span></a>
+    <nav>
+      <button class="nav-link active" data-view="shop">Shop</button>
+      <button class="nav-link" data-view="orders">My orders</button>
+      <button class="nav-link" data-view="seller">Seller dashboard</button>
+    </nav>
+    <div class="account-area">
+      <span id="accountLabel" class="muted">Not signed in</span>
+      <button id="authButton" class="button button-light">Sign in</button>
+      <button id="logoutButton" class="button button-quiet hidden">Log out</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">ONE MARKETPLACE · MANY SELLERS</p>
+        <h1>Find good things.<br><span>Support local sellers.</span></h1>
+        <p class="hero-copy">Browse products from different vendors and place your orders in one simple place.</p>
+        <button class="button button-primary" id="browseButton">Explore products <span aria-hidden="true">→</span></button>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="sun"></div><div class="bag">🛍️</div><div class="art-card art-one">Fresh finds</div><div class="art-card art-two">Local stores</div></div>
+    </section>
+
+    <div id="notice" class="notice hidden" role="status"></div>
+    <section id="shopView" class="view">
+      <div class="section-heading">
+        <div><p class="eyebrow">MARKETPLACE</p><h2>Explore products</h2></div>
+        <div class="filters">
+          <input id="searchInput" type="search" placeholder="Search products…" aria-label="Search products">
+          <select id="categoryFilter" aria-label="Filter by category"><option value="">All categories</option></select>
+        </div>
+      </div>
+      <div id="productGrid" class="product-grid"><div class="empty-state">Loading products…</div></div>
+    </section>
+
+    <section id="ordersView" class="view hidden">
+      <div class="section-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>My orders</h2></div></div>
+      <div id="ordersList" class="panel"><p class="muted">Sign in to view your orders.</p></div>
+    </section>
+
+    <section id="sellerView" class="view hidden">
+      <div class="section-heading"><div><p class="eyebrow">SELLER SPACE</p><h2>Seller dashboard</h2><p class="muted">Add and manage products for your store.</p></div></div>
+      <div id="sellerContent" class="panel"><p class="muted">Sign in with a vendor account to manage products.</p></div>
+    </section>
+  </main>
+
+  <footer><span>MarketHub</span><span>A beginner-friendly full-stack college project</span></footer>
+
+  <dialog id="authDialog" class="dialog">
+    <form id="authForm" class="dialog-card">
+      <button type="button" class="dialog-close" data-close="authDialog" aria-label="Close">×</button>
+      <p class="eyebrow">WELCOME TO MARKETHUB</p><h2 id="authTitle">Sign in</h2>
+      <p class="muted" id="authSubtitle">Access your marketplace account.</p>
+      <label>Email address<input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></label>
+      <label>Password<input name="password" type="password" autocomplete="current-password" required minlength="8" placeholder="At least 8 characters"></label>
+      <div id="registerFields" class="hidden">
+        <label>Your name<input name="name" type="text" maxlength="80" placeholder="Full name"></label>
+        <label>Account type<select name="role"><option value="customer">Customer</option><option value="vendor">Vendor / seller</option></select></label>
+      </div>
+      <button class="button button-primary full-width" id="authSubmit" type="submit">Sign in</button>
+      <p class="switch-auth"><span id="switchText">New here?</span> <button type="button" id="switchAuth" class="text-button">Create an account</button></p>
+      <p class="small muted">Use your own account. Passwords are securely hashed by the server.</p>
+    </form>
+  </dialog>
+
+  <dialog id="cartDialog" class="dialog">
+    <form id="cartForm" class="dialog-card">
+      <button type="button" class="dialog-close" data-close="cartDialog" aria-label="Close">×</button>
+      <p class="eyebrow">CHECKOUT</p><h2>Your cart</h2>
+      <div id="cartItems"></div>
+      <div class="cart-total"><span>Total</span><strong id="cartTotal">₹0.00</strong></div>
+      <label>Delivery address<textarea name="address" required minlength="8" maxlength="300" placeholder="House number, street, city, PIN code"></textarea></label>
+      <button class="button button-primary full-width" type="submit">Place order</button>
+    </form>
+  </dialog>
+
+  <button id="cartButton" class="floating-cart" aria-label="Open shopping cart">🛒 <span id="cartCount">0</span></button>
+  <script src="app.js"></script>
+</body>
+</html>
